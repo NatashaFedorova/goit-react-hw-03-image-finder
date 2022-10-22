@@ -1,6 +1,11 @@
 import { Component } from 'react';
-import Section from 'components/Section';
-import { Background } from 'components/constants/Background.styled';
+import Header from './Header';
+import Section from './Section';
+import Searchbar from './Searchbar';
+import ImageGallery from './ImageGallery';
+import BtnLoadMore from './BtnLoadMore';
+import { Background } from 'components/constants/Base.styled';
+import Loader from './Loader';
 
 export class App extends Component {
   state = {};
@@ -8,8 +13,13 @@ export class App extends Component {
   render() {
     return (
       <Background>
+        <Header>
+          <Searchbar />
+        </Header>
         <Section>
-          <h1>finder</h1>
+          <ImageGallery />
+          <BtnLoadMore />
+          <Loader />
         </Section>
       </Background>
     );

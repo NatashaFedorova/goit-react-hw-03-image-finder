@@ -7,5 +7,4 @@ const Section = ({ children }) => {
     </SectionEl>
   );
 };
-
 export default Section;

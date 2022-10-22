@@ -1,9 +1,11 @@
 export const theme = Object.freeze({
   colors: {
-    light: '#e6dbdb',
+    light: '#ffffff',
     dark: '#303030',
-    background: '#181515',
     accent: '#ff7700',
+    searchIcon: '#303030',
+    header: '#ff7700',
+    background: '#ffffff',
     error: '#ff0000',
   },
   spacing: value => `${4 * value}px`,
