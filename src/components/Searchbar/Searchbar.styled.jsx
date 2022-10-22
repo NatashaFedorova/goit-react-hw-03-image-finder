@@ -8,7 +8,7 @@ export const SearchForm = styled(Form)`
 
 export const Input = styled(Field)`
   width: 350px;
-  padding: ${props => props.theme.spacing(1)};
+  padding: ${props => props.theme.spacing(1)} ${props => props.theme.spacing(2)};
   border: ${props => props.theme.borders.none};
   color: ${props => props.theme.colors.dark};
   background-color: ${props => props.theme.colors.light};

@@ -5,6 +5,7 @@ export const Button = styled.button`
   display: block;
   padding: ${props => props.theme.spacing(3)} ${props => props.theme.spacing(5)};
   margin: ${props => props.theme.spacing(0)} auto;
+  margin-top: ${props => props.theme.spacing(8)};
   border: ${props => `1px solid ${props.theme.colors.accent}`};
   border-radius: ${props => props.theme.radii.normal};
   font-size: ${props => props.theme.fontSizes.small};

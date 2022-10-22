@@ -7,9 +7,9 @@ const schema = yup.object().shape({
   value: yup.string().trim().required(),
 });
 
-const SearchBar = () => {
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values.value.trim());
+const SearchBar = ({ onSubmit }) => {
+  const handleSubmit = ({ value }, { resetForm }) => {
+    onSubmit(value.trim());
     resetForm();
   };
   return (
@@ -19,9 +19,6 @@ const SearchBar = () => {
       validationSchema={schema}
     >
       <SearchForm>
-        <Btn type="submit">
-          <Icon />
-        </Btn>
         <Input
           name="value"
           type="text"
@@ -29,6 +26,9 @@ const SearchBar = () => {
           autoFocus
           placeholder="Search images and photos"
         />
+        <Btn type="submit">
+          <Icon />
+        </Btn>
       </SearchForm>
     </Formik>
   );

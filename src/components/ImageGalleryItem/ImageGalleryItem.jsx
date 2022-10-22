@@ -1,17 +1,20 @@
-import Modal from 'components/Modal';
+import PropTypes from 'prop-types';
 import { Item, Img } from './ImageGalleryItem.styled';
 
-const ImageGalleryItem = () => {
+const ImageGalleryItem = ({ item }) => {
   return (
-    <>
-      <Item>
-        <Img
-          src="https://st3.depositphotos.com/7340112/15280/i/450/depositphotos_152809206-stock-photo-mountain-peaks-in-cape-town.jpg"
-          alt=""
-        />
-      </Item>
-      <Modal />
-    </>
+    <Item>
+      <Img src={item.webformatURL} alt={item.tags} />
+    </Item>
   );
 };
 export default ImageGalleryItem;
+
+ImageGalleryItem.propTyps = {
+  item: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    tags: PropTypes.string.isRequired,
+    webformatURL: PropTypes.string.isRequired,
+    largeImageURL: PropTypes.string.isRequired,
+  }),
+};

@@ -1,14 +1,18 @@
+import PropTypes from 'prop-types';
 import ImageGalleryItem from 'components/ImageGalleryItem';
-import { nanoid } from 'nanoid';
 import { List } from './ImageGallery.styled';
 
-const ImageGallery = () => {
+const ImageGallery = ({ gallery }) => {
   return (
-    <>
-      <List>
-        <ImageGalleryItem key={nanoid()} />
-      </List>
-    </>
+    <List>
+      {gallery.map(item => {
+        return <ImageGalleryItem key={item.id} item={item} />;
+      })}
+    </List>
   );
 };
 export default ImageGallery;
+
+ImageGallery.propTypes = {
+  gallery: PropTypes.arrayOf(PropTypes.object),
+};
