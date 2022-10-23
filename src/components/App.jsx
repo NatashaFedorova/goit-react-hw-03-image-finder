@@ -57,9 +57,11 @@ export class App extends Component {
     try {
       this.setState({ isLoading: true });
       const { hits, totalHits } = await getGallery(value, page);
+
       if (hits.length === 0) {
-        throw new Error();
+        this.setState({ error: 'Nothing was found for this request :(' });
       }
+
       this.setState({
         gallery: hits,
         totalImages: totalHits,
@@ -67,7 +69,7 @@ export class App extends Component {
       });
     } catch (error) {
       this.setState({
-        error: 'Nothing was found for this request :(',
+        error: 'Oops! Something went wrong :( please, try reloading the page',
       });
     } finally {
       this.setState({ isLoading: false });
@@ -79,9 +81,11 @@ export class App extends Component {
     try {
       this.setState({ isLoading: true, isLoadMore: false });
       const { hits } = await getGallery(value, page);
+
       if (hits.length === 0) {
-        throw new Error();
+        this.setState({ error: 'Nothing was found for this request :(' });
       }
+
       this.setState(prevState => ({
         gallery: [...prevState.gallery, ...hits],
         isLoadMore: true,
