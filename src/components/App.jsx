@@ -6,8 +6,8 @@ import Header from './Header';
 import Section from './Section';
 import Searchbar from './Searchbar';
 import ImageGallery from './ImageGallery';
-import Skeleton from './Skeleton';
 import BtnLoadMore from './BtnLoadMore';
+import Loading from './Loading';
 import { Background } from 'components/constants/Base.styled';
 
 const errorStyle = {
@@ -77,6 +77,7 @@ export class App extends Component {
   fetchGalleryAfterChangePage = async () => {
     const { value, page } = this.state;
     try {
+      this.setState({ isLoading: true, isLoadMore: false });
       const { hits } = await getGallery(value, page);
       if (hits.length === 0) {
         throw new Error();
@@ -118,19 +119,19 @@ export class App extends Component {
     const btnLoadMoreVisibility =
       isLoadMore && totalImages !== gallery.length && gallery.length !== 0;
 
+    const galleryVisibility = gallery.length > 0;
+
     return (
       <Background>
         <Header>
           <Searchbar onSubmit={this.changeValue} />
         </Header>
         <Section>
-          {gallery.length > 0 && (
+          {galleryVisibility && (
             <ImageGallery gallery={gallery} onChange={this.getImgByItemId} />
           )}
-          {isLoading && <Skeleton />}
-
+          {isLoading && <Loading />}
           {btnLoadMoreVisibility && <BtnLoadMore onClick={this.changePage} />}
-
           {showModal && (
             <Modal item={selectedGalleryItem} onClose={this.toggleModal} />
           )}
@@ -140,3 +141,6 @@ export class App extends Component {
     );
   }
 }
+
+// // import Skeleton from './Skeleton';
+//  {isLoading && <Skeleton />}
