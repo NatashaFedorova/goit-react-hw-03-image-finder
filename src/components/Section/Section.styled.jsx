@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const SectionEl = styled.section`
-  padding-top: ${props => props.theme.spacing(28)};
+  padding-top: ${props => props.theme.spacing(35)};
   padding-bottom: ${props => props.theme.spacing(8)};
 `;
 export const Container = styled.div`

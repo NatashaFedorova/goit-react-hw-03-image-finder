@@ -3,6 +3,8 @@ import { Field, Form } from 'formik';
 import { ImSearch } from 'react-icons/im';
 
 export const SearchForm = styled(Form)`
+  position: relative;
+  padding: 25px 0;
   display: flex;
 `;
 
@@ -37,4 +39,12 @@ export const Btn = styled.button`
 export const Icon = styled(ImSearch)`
   fill: ${props => props.theme.colors.searchIcon};
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+`;
+
+export const Error = styled.p`
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: ${props => props.theme.colors.error};
 `;

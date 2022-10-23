@@ -1,7 +1,7 @@
-import { Formik } from 'formik';
+import { ErrorMessage, Formik } from 'formik';
 import * as yup from 'yup';
 
-import { SearchForm, Input, Icon, Btn } from './Searchbar.styled';
+import { SearchForm, Input, Icon, Btn, Error } from './Searchbar.styled';
 
 const schema = yup.object().shape({
   value: yup.string().trim().required(),
@@ -26,9 +26,11 @@ const SearchBar = ({ onSubmit }) => {
           autoFocus
           placeholder="Search images and photos"
         />
+
         <Btn type="submit">
           <Icon />
         </Btn>
+        <ErrorMessage name="value" component={Error} />
       </SearchForm>
     </Formik>
   );

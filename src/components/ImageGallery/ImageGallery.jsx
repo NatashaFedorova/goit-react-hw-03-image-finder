@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import ImageGalleryItem from 'components/ImageGalleryItem';
 import { List } from './ImageGallery.styled';
 
-const ImageGallery = ({ gallery }) => {
+const ImageGallery = ({ gallery, ...otherProps }) => {
   return (
     <List>
       {gallery.map(item => {
-        return <ImageGalleryItem key={item.id} item={item} />;
+        return <ImageGalleryItem key={item.id} item={item} {...otherProps} />;
       })}
     </List>
   );

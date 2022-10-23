@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { Item, Img } from './ImageGalleryItem.styled';
 
-const ImageGalleryItem = ({ item }) => {
+const ImageGalleryItem = ({ item, onChange }) => {
   return (
-    <Item>
+    <Item onClick={() => onChange(item.id)}>
       <Img src={item.webformatURL} alt={item.tags} />
     </Item>
   );
