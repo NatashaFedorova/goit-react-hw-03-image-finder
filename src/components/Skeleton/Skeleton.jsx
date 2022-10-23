@@ -1,7 +1,7 @@
 import ContentLoader from 'react-content-loader';
-import { List, Item } from './Loader.styled';
+import { List, Item } from './Skeleton.styled';
 
-const Loader = () => {
+const Skeleton = () => {
   return (
     <List>
       <Item>
@@ -104,4 +104,4 @@ const Loader = () => {
   );
 };
 
-export default Loader;
+export default Skeleton;

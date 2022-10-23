@@ -6,7 +6,7 @@ import Header from './Header';
 import Section from './Section';
 import Searchbar from './Searchbar';
 import ImageGallery from './ImageGallery';
-import Loader from './Loader';
+import Skeleton from './Skeleton';
 import BtnLoadMore from './BtnLoadMore';
 import { Background } from 'components/constants/Base.styled';
 
@@ -127,7 +127,7 @@ export class App extends Component {
           {gallery.length > 0 && (
             <ImageGallery gallery={gallery} onChange={this.getImgByItemId} />
           )}
-          {isLoading && <Loader />}
+          {isLoading && <Skeleton />}
 
           {btnLoadMoreVisibility && <BtnLoadMore onClick={this.changePage} />}
 

@@ -4,11 +4,13 @@ import { List } from './ImageGallery.styled';
 
 const ImageGallery = ({ gallery, ...otherProps }) => {
   return (
-    <List>
-      {gallery.map(item => {
-        return <ImageGalleryItem key={item.id} item={item} {...otherProps} />;
-      })}
-    </List>
+    <>
+      <List>
+        {gallery.map(item => {
+          return <ImageGalleryItem key={item.id} item={item} {...otherProps} />;
+        })}
+      </List>
+    </>
   );
 };
 export default ImageGallery;

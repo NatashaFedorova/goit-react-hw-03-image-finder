@@ -12,9 +12,12 @@ export const Backdrop = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  align-content: center;
 `;
 
 export const ModalBox = styled.div`
+  max-width: calc(100vw - 48px);
+  max-height: calc(100vh - 24px);
   background-color: rgb(160, 157, 157);
 `;
 
